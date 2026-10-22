@@ -1,0 +1,274 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Anish Jain Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one left-aligned column; big name opens the page, then a ruled list of sections with a narrow label column beside wide content. */
+:root {
+  --bg: #EEF1EE;
+  --surface: #E2E8E3;
+  --fg: #15211C;
+  --muted: #546159;
+  --line: #C4CEC7;
+  --accent: #0B6B58;
+  --accent-fg: #FFFFFF;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1613;
+    --surface: #17211C;
+    --fg: #E6EEE9;
+    --muted: #93A49A;
+    --line: #2A3831;
+    --accent: #58D4B4;
+    --accent-fg: #0F1613;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1613;
+  --surface: #17211C;
+  --fg: #E6EEE9;
+  --muted: #93A49A;
+  --line: #2A3831;
+  --accent: #58D4B4;
+  --accent-fg: #0F1613;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  padding-block: 24px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.wrap { max-width: 960px; margin-inline: auto; }
+
+/* Top bar */
+.bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.mark { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; text-decoration: none; }
+.nav { display: flex; flex-wrap: wrap; gap: 4px 22px; font-family: var(--font-mono); font-size: 0.82rem; }
+.nav a { color: var(--muted); text-decoration: none; padding-block: 2px; }
+.nav a:hover { color: var(--accent); }
+
+/* Hero */
+.hero { padding-block: 72px 64px; display: grid; gap: 40px; grid-template-columns: minmax(0, 1fr); }
+.eyebrow { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin: 0 0 20px; }
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3.2rem, 11vw, 7.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 0;
+  text-wrap: balance;
+}
+.lede { font-size: clamp(1.15rem, 2.4vw, 1.4rem); line-height: 1.5; max-width: 34em; margin: 28px 0 0; color: var(--fg); text-wrap: pretty; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  padding: 12px 22px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  transition: background-color 0.15s, color 0.15s;
+}
+.btn.primary { background: var(--accent); color: var(--accent-fg); }
+.btn.primary:hover { background: transparent; color: var(--accent); }
+.btn.ghost { color: var(--accent); }
+.btn.ghost:hover { background: var(--accent); color: var(--accent-fg); }
+
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0; border-top: 1px solid var(--line); margin: 0; }
+.facts div { padding: 16px 20px 0 0; }
+.facts dt { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 4px 0 0; font-weight: 500; }
+
+/* Sections */
+.section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  padding-block: 48px;
+  border-top: 1px solid var(--line);
+}
+@media (min-width: 760px) {
+  .section { grid-template-columns: 200px minmax(0, 1fr); gap: 40px; }
+}
+.label { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 6px 0 0; }
+h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.6rem, 3.6vw, 2.2rem); line-height: 1.2; letter-spacing: -0.015em; margin: 0 0 18px; text-wrap: balance; }
+.section p { margin: 0 0 1em; max-width: 36em; text-wrap: pretty; }
+.section p:last-child { margin-bottom: 0; }
+
+/* Projects */
+.projects { list-style: none; margin: 0; padding: 0; }
+.project { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px 24px; padding-block: 24px; border-top: 1px solid var(--line); }
+.project:first-child { border-top: 0; padding-top: 0; }
+@media (min-width: 640px) {
+  .project { grid-template-columns: 64px minmax(0, 1fr) auto; align-items: baseline; }
+}
+.year { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.project h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; line-height: 1.25; margin: 0 0 6px; }
+.project p { margin: 0 0 10px; color: var(--muted); max-width: 34em; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.tags li { font-family: var(--font-mono); font-size: 0.75rem; padding: 2px 8px; border-radius: 3px; background: var(--surface); color: var(--fg); }
+.view { font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent); text-decoration: none; white-space: nowrap; }
+.view:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px 32px; margin: 0; }
+.skills h3 { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin: 0 0 10px; }
+.skills ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+
+/* Contact */
+.mail { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.4rem, 4.5vw, 2.1rem); letter-spacing: -0.015em; overflow-wrap: anywhere; user-select: all; margin: 0 0 20px; }
+.links { display: flex; flex-wrap: wrap; gap: 8px 24px; font-family: var(--font-mono); font-size: 0.9rem; }
+.links a { color: var(--accent); text-underline-offset: 4px; }
+
+footer { border-top: 1px solid var(--line); padding-top: 20px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+}
+</style>
+
+<div class="wrap">
+  <header class="bar">
+    <a class="mark" href="#top">Anish Jain</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="name">
+      <div>
+        <p class="eyebrow">DevOps Portfolio 2026</p>
+        <h1 id="name">Anish Jain</h1>
+        <p class="lede">I automate the path from code to production with pipelines, containers and infrastructure that are repeatable and easy to review.</p>
+        <div class="actions">
+          <a class="btn primary" href="#work">See my work</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>DevOps engineer</dd></div>
+        <div><dt>Focus</dt><dd>CI/CD, Docker, Terraform</dd></div>
+        <div><dt>Status</dt><dd>Open to roles</dd></div>
+      </dl>
+    </section>
+
+    <section class="section" id="about" aria-labelledby="about-h">
+      <p class="label">About</p>
+      <div>
+        <h2 id="about-h">I like making deployments boring.</h2>
+        <p>I am a DevOps engineer who builds pipelines that test and ship code automatically, packages applications in containers, and describes infrastructure as code so any environment can be rebuilt from a single repository.</p>
+        <p>I keep things small and documented: short pipelines, clear READMEs, and changes that can be reviewed and rolled back.</p>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-h">
+      <p class="label">Selected work</p>
+      <div>
+        <h2 id="work-h">Three recent projects</h2>
+        <ul class="projects">
+          <li class="project">
+            <span class="year">2026</span>
+            <div>
+              <h3>Automated CI/CD Pipeline for a Static Website</h3>
+              <p>A GitHub Actions pipeline that lints, builds and deploys a static site to S3 and CloudFront on every push to main.</p>
+              <ul class="tags"><li>GitHub Actions</li><li>AWS S3</li><li>CloudFront</li></ul>
+            </div>
+            <a class="view" href="#">View on GitHub &rarr;</a>
+          </li>
+          <li class="project">
+            <span class="year">2025</span>
+            <div>
+              <h3>Containerized Web Application using Docker</h3>
+              <p>A web app packaged with a multi-stage Dockerfile and run with Docker Compose next to its database and an Nginx proxy.</p>
+              <ul class="tags"><li>Docker</li><li>Docker Compose</li><li>Nginx</li></ul>
+            </div>
+            <a class="view" href="#">View on GitHub &rarr;</a>
+          </li>
+          <li class="project">
+            <span class="year">2025</span>
+            <div>
+              <h3>Infrastructure as Code (IaC) with Terraform</h3>
+              <p>Terraform modules that provision a VPC, subnets and EC2 instances, with remote state and separate dev and prod workspaces.</p>
+              <ul class="tags"><li>Terraform</li><li>AWS</li><li>Remote state</li></ul>
+            </div>
+            <a class="view" href="#">View on GitHub &rarr;</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="skills" aria-labelledby="skills-h">
+      <p class="label">Skills</p>
+      <div>
+        <h2 id="skills-h">What I work with</h2>
+        <div class="skills">
+          <div>
+            <h3>Pipelines</h3>
+            <ul><li>GitHub Actions</li><li>Jenkins</li><li>GitLab CI</li><li>Git branching workflows</li></ul>
+          </div>
+          <div>
+            <h3>Containers</h3>
+            <ul><li>Docker</li><li>Docker Compose</li><li>Kubernetes basics</li><li>Nginx</li></ul>
+          </div>
+          <div>
+            <h3>Infrastructure</h3>
+            <ul><li>Terraform</li><li>AWS</li><li>Linux and Bash</li><li>Prometheus and Grafana</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-h">
+      <p class="label">Contact</p>
+      <div>
+        <h2 id="contact-h">Have a project in mind?</h2>
+        <p>Send me a short note about your pipeline or infrastructure and what you want to improve. I reply within two working days.</p>
+        <p class="mail">hello@yourdomain.com</p>
+        <div class="links">
+          <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Anish Jain</span>
+    <span>Built with HTML and CSS</span>
+  </footer>
+</div>
+
+</body></html>
